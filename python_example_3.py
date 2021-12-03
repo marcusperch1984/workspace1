@@ -2,6 +2,7 @@
 
 #import pandas as pd
 
+# sudo apt-get install python-pycurl
 import pycurl
 from io import BytesIO 
 
