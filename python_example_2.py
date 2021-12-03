@@ -2,21 +2,23 @@
 
 #import pandas as pd
 
-a = [100, 400] #, 300]
+a = [100, 500, 600]
 
 p1 = a[0]
 p2 = a[1]
-#p3 = a[2]
+p3 = a[2]
 
 print("hello world - array")
 
 # 1) if / else
 
 
-if p1 > p2:
+if (p1 > p2) and (p1 > p3):
 	print("p1 is the winner with " + str(p1))
-else:
+elif (p2 > p1) and (p2 > p3):
 	print("p2 is the winner with " + str(p2))
+else:
+	print("p3 is the winner with " + str(p3))
 
 
 
