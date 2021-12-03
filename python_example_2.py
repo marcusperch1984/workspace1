@@ -4,6 +4,33 @@
 
 print("hello world")
 
+released = {
+		"iphone" : 2007,
+		"iphone 3G" : 2008,
+		"iphone 3GS" : 2009,
+		"iphone 4" : 2010,
+		"iphone 4S" : 2011,
+		"iphone 5" : 2012
+	}
+print released
+
+release1 = released.get("iphone", "none")
+release2 = released.get("iphone 3G", "none")
+release3 = released.get("iphone 3GS", "none")
+release4 = released.get("iphone 4", "none")
+release5 = released.get("iphone 4S", "none")
+release6 = released.get("iphone 5", "none")
+
+print release1
+print release2
+print release3
+print release4
+print release5
+print release6
+
+
+print("oldest release = " + str(released.get("none", "2007")))
+
 # Let's try and save something in an array (think of it as a table)
 
 #df1 = pd.DataFrame({'Name': ['Pankaj', 'Lisa'], 'ID': [1, 2]})
