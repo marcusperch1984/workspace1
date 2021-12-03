@@ -2,7 +2,7 @@
 
 #import pandas as pd
 
-a = [100, 500, 600]
+a = [100, 700, 600]
 
 p1 = a[0]
 p2 = a[1]
@@ -23,6 +23,15 @@ else:
 
 
 # 2) loop
+
+result = 0
+
+for singleElementOfArray in a:
+
+	if result < singleElementOfArray:
+		result = singleElementOfArray
+
+print("loop: result = " + str(result))
 
 
 
