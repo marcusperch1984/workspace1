@@ -5,6 +5,9 @@
 # sudo apt-get install python-pycurl
 import pycurl
 from io import BytesIO 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 days_of_the_week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
@@ -15,7 +18,7 @@ b_obj = BytesIO()
 crl = pycurl.Curl() 
 
 # Set URL value
-crl.setopt(crl.URL, 'https://wiki.python.org/moin/BeginnersGuide')
+crl.setopt(crl.URL, 'https://www.bbc.co.uk/sport/football/tables')
 
 # Write bytes that are utf-8 encoded
 crl.setopt(crl.WRITEDATA, b_obj)
