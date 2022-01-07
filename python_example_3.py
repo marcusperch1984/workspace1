@@ -18,7 +18,8 @@ b_obj = BytesIO()
 crl = pycurl.Curl() 
 
 # Set URL value
-crl.setopt(crl.URL, 'https://www.bbc.co.uk/news/topics/c9qdqqkgz27t/ftse-100')
+#crl.setopt(crl.URL, 'https://www.bbc.co.uk/news/topics/c9qdqqkgz27t/ftse-100')
+crl.setopt(crl.URL, 'https://www.biblegateway.com/passage/?search=Ephesians%205:1-2&version=NIV')
 
 # Write bytes that are utf-8 encoded
 crl.setopt(crl.WRITEDATA, b_obj)
