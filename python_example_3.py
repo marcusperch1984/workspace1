@@ -36,4 +36,9 @@ get_body = b_obj.getvalue()
 # Decode the bytes stored in get_body to HTML and print the result 
 print('Output of GET request:\n%s' % get_body.decode('utf8'))
 
+variableString = get_body.decode('utf8')
+
+print(variableString)
+print("did it work?")
+
 
