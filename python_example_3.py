@@ -6,12 +6,15 @@
 import pycurl
 from io import BytesIO 
 import sys
+import re
+import os
+
 reload(sys)
 sys.setdefaultencoding('utf8')
 
-days_of_the_week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+#days_of_the_week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
-print(days_of_the_week[2])
+#print(days_of_the_week[2])
 
 
 b_obj = BytesIO() 
@@ -19,7 +22,7 @@ crl = pycurl.Curl()
 
 # Set URL value
 #crl.setopt(crl.URL, 'https://www.bbc.co.uk/news/topics/c9qdqqkgz27t/ftse-100')
-crl.setopt(crl.URL, 'https://www.biblegateway.com/passage/?search=Ephesians%205:1-2&version=NIV')
+crl.setopt(crl.URL, 'https://www.biblegateway.com/passage/?search=Ephesians%205:1-16&version=NIV')
 
 # Write bytes that are utf-8 encoded
 crl.setopt(crl.WRITEDATA, b_obj)
@@ -34,11 +37,35 @@ crl.close()
 get_body = b_obj.getvalue()
 
 # Decode the bytes stored in get_body to HTML and print the result 
-print('Output of GET request:\n%s' % get_body.decode('utf8'))
+#print('Output of GET request:\n%s' % get_body.decode('utf8'))
 
 variableString = get_body.decode('utf8')
 
-print(variableString)
-print("did it work?")
 
+filename = "test_file_added.txt"
+os.remove(filename)
+
+
+f = open(filename, "w") # w=over write the contents
+f.write(variableString)
+f.close()
+
+index = 0
+passage_index = 0
+
+with open(filename) as file:
+    for line in file:
+    	
+    	if ("passage-content passage-class" in line):
+    		passage_index = index
+    		print("INDEX=" + str(index))
+    		print(line.rstrip())
+
+    	if index == (passage_index + 1):
+    		print(line.rstrip())
+
+    	index = index + 1
+
+
+# passage-content
 
